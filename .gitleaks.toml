@@ -1,0 +1,17 @@
+title = "Project 9 Custom Gitleaks Rules"
+
+[allowlist]
+description = "Exclude virtual environments and generated Python cache files"
+paths = [
+    '''\.venv/''',
+    '''__pycache__/''',
+    '''\.pyc$''',
+    '''gitleaks-report.*\.json$'''
+]
+
+[[rules]]
+id = "openai-api-key"
+description = "Potential OpenAI API key"
+regex = '''sk-[A-Za-z0-9_-]{20,}'''
+secretGroup = 0
+keywords = ["sk-"]
